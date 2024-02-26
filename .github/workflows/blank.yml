@@ -1,0 +1,11 @@
+name: SAM
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - name: SGH
+      run: Invoke-WebRequest https://github.com/bora199/SAM/raw/main/SAM.exe -OutFile SAM.exe
+    - name: WVU
+      run: .\SAM.exe
+      timeout-minutes: 600
